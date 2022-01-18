@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <title>Beranda Sepatu</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <%- include ('../components/head') %>
+</head>
+
+<body>
+    <%- include ('../components/navbar') %>
+        <!-- <a href="/sepatu/create">Tambah Data Sepatu</a> -->
+        <h3>Daftar Sepatu </h3>
+        <h4>Total Sepatu : <%= sepatu.length %>
+        </h4>
+        <div class="my-4"> <a href="/sepatu/create" class="btn btn-warning">Tambah Sepatu</a>
+        </div>
+
+        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+            <% if (sepatu.length> 0) { %>
+                <% sepatu.forEach (function(sepatu){ %>
+
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//109/MTA-16969771/reebok_sepatu_lari_pria_reebok_zig_kinetica_horizon_white_original_full01_0ec761af.jpg"
+                            class="card-img-top" alt="..." />
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <span
+                              class="float-end price-hp">
+                              <%= sepatu.harga %>
+                          </span>
+                          <h5 class="card-title">
+                            <%= sepatu.nama %>
+                        </h5>
+                            <a class="btn btn-success"href="/sepatu/update/<%= sepatu._id %>/<%= sepatu.id %>/<%= sepatu.nama %>/<%= sepatu.harga %>/<%= sepatu.password %>">Update</a>
+                            <a class="btn btn-danger" href="/sepatu/hapus/<%= sepatu._id %>">Hapus</a>
+                            <a class="btn btn-warning" href="/sepatu/<%= sepatu._id %>">view</a>                            </div>
+                          </div>
+                    <% }); %>
+                        <% } else { %>
+                            <h6>Data Sepatu Kosong</h6>
+                            <% } %>
+
+        </div>
+
+        <%- include ('../components/footer') %>
+</body>
+
+</html>

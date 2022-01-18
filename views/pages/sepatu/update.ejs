@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Update Data</title>
+</head>
+<%- include ('../components/head') %>
+
+    <body>
+        <%- include ('../components/navbar') %>
+            <div class="container">
+                <h1>update Sepatu</h1>
+                <form method="post" action="/sepatu/update">
+                    <div class="group-input">
+                        <label>ID Sepatu database </label>
+                        <input type="text" name="_id" readonly value='<%= sepatu._id %>'>
+                    </div>
+                    <div class="group-input">
+                        <label>ID Sepatu </label>
+                        <input type="text" name="id" required value='<%= sepatu.id %>'>
+                    </div>
+                    <div class="group-input">
+                        <label>Nama Sepatu </label>
+                        <input type="text" name="nama" required value='<%= sepatu.nama %>'>
+                    </div>
+                    <div class="group-input">
+                        <label>Harga Sepatu </label>
+                        <input type="text" name="harga" required value='<%= sepatu.harga %>'>
+                    </div>
+                    <div class="group-input">
+                        <label>Password </label>
+                        <input type="text" name="password" required value='<%= sepatu.password %>'>
+                    </div>
+                    <button type="submit" value="submit">update</button>
+                    <a href="/sepatu">Kembali</a>
+                </form>
+            </div>
+    </body>
+
+</html>
